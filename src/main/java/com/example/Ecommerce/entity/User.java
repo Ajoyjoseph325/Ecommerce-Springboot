@@ -2,6 +2,8 @@ package com.example.Ecommerce.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.annotation.Generated;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -24,6 +26,7 @@ public class User {
     private String address;
     private String landmark;
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "user-cart")
     private List<Cart> cart;
 
 

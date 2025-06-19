@@ -3,6 +3,7 @@ package com.example.Ecommerce.entity;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -27,9 +28,10 @@ public class Product {
    private String imageUrl;
    @ManyToOne
    @JoinColumn(name="category_id")
-   @JsonBackReference
+    @JsonBackReference // 
    private Category category;
    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "product-cart")
    private List<Cart> cart;
 
 
