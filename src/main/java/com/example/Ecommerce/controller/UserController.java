@@ -18,7 +18,7 @@ public class UserController {
     @Autowired
     UserService uService;
 
-    @GetMapping("/register")
+    @PostMapping("/register")
     public ResponseEntity<User> registeruser(@RequestBody User user){
         
 
